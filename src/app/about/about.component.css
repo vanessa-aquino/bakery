@@ -1,0 +1,29 @@
+.card {
+  border-color: var(--pink-logo);
+  border-radius: 8px;
+}
+
+.col-md-4 > img {
+  height: 100%;
+}
+
+h5 {
+  font-family: var(--font-titles);
+  font-size: 1.5rem;
+  color: var(--pink-logo);
+}
+
+.card-body > h6,
+p {
+  font-family: var(--font-texts);
+}
+
+.card-body > h6 {
+  font-size: 1rem;
+  color: #26130bd7 !important;
+}
+
+.card-body > p {
+  font-size: 0.9rem;
+  color: var(--black-color) !important;
+}
