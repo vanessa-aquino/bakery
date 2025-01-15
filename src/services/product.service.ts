@@ -42,4 +42,17 @@ export class ProductService {
   getProducts() {
     return this.products;
   }
+
+  searchProducts(term: string) {
+    const result = {
+      cakes: this.filterProducts(this.products.cakes, term),
+      cupcakes: this.filterProducts(this.products.cupcakes, term),
+      candys: this.filterProducts(this.products.candys, term),
+      coffees: this.filterProducts(this.products.coffees, term),
+    };
+    return result;
+  }
+  private filterProducts(products: any[], term: string) {
+    return products.filter(product => product.name.toLowerCase().includes(term.toLowerCase()));
+  }
 }

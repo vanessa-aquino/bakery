@@ -16,10 +16,27 @@
   --font-texts: 'Poppins', sans-serif;
 }
 
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--gray-color);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--pink-logo);
+  border-radius: 10px;
+}
+
 #logo {
   width: 80px;
 }
 
 main {
   margin-top: 5rem;
+}
+
+section {
+  scroll-margin-top: 6rem;
 }
