@@ -14,9 +14,61 @@
     </li>
   </ul>
   <div class="tab-content" id="myTabContent">
-    <div class="tab-pane fade show active" id="cakes-tab-pane" role="tabpanel" aria-labelledby="cakes-tab" tabindex="0">...</div>
-    <div class="tab-pane fade" id="cupcakes-tab-pane" role="tabpanel" aria-labelledby="cupcakes-tab" tabindex="0">...</div>
-    <div class="tab-pane fade" id="candys-tab-pane" role="tabpanel" aria-labelledby="candys-tab" tabindex="0">...</div>
-    <div class="tab-pane fade" id="coffees-tab-pane" role="tabpanel" aria-labelledby="coffees-tab" tabindex="0">...</div>
+    <div class="tab-pane fade show active" id="cakes-tab-pane" role="tabpanel" aria-labelledby="cakes-tab" tabindex="0">
+      <!-- Cards -->
+  <div class="row row-cols-1 row-cols-md-3 g-4 mt-2">
+    <div class="col" *ngFor="let cake of cakes">
+      <div class="card-menu" id="card-cake">
+        <img [src]="cake.img" class="card-img-top" [alt]="cake.name">
+        <div class="card-body">
+        <h5 class="card-title">{{ cake.name }}</h5>
+        <p class="card-text">{{ cake.price | currency: 'BRL': true }}</p>
+      </div>
+    </div>
+  </div>
+  </div>
+    </div>
+    <div class="tab-pane fade" id="cupcakes-tab-pane" role="tabpanel" aria-labelledby="cupcakes-tab" tabindex="0">
+      <!-- Cards -->
+      <div class="row row-cols-1 row-cols-md-3 g-4 mt-2">
+        <div class="col" *ngFor="let cupcake of cupcakes">
+          <div class="card-menu" id="card-cupcake">
+            <img [src]="cupcake.img" class="card-img-top" [alt]="cupcake.name">
+            <div class="card-body">
+            <h5 class="card-title">{{ cupcake.name }}</h5>
+            <p class="card-text">{{ cupcake.price | currency: 'BRL': true }}</p>
+          </div>
+        </div>
+      </div>
+      </div>
+    </div>
+    <div class="tab-pane fade" id="candys-tab-pane" role="tabpanel" aria-labelledby="candys-tab" tabindex="0">
+      <!-- Cards -->
+      <div class="row row-cols-1 row-cols-md-3 g-4 mt-2">
+        <div class="col" *ngFor="let candy of candys">
+          <div class="card-menu" id="card-candy">
+            <img [src]="candy.img" class="card-img-top" [alt]="candy.name">
+            <div class="card-body">
+            <h5 class="card-title">{{ candy.name }}</h5>
+            <p class="card-text">{{ candy.price | currency: 'BRL': true }}</p>
+          </div>
+        </div>
+      </div>
+      </div>
+    </div>
+    <div class="tab-pane fade" id="coffees-tab-pane" role="tabpanel" aria-labelledby="coffees-tab" tabindex="0">
+      <!-- Cards -->
+      <div class="row row-cols-1 row-cols-md-3 g-4 mt-2">
+        <div class="col" *ngFor="let coffee of coffees">
+          <div class="card-menu" id="card-coffee">
+            <img [src]="coffee.img" class="card-img-top" [alt]="coffee.name">
+            <div class="card-body">
+            <h5 class="card-title">{{ coffee.name }}</h5>
+            <p class="card-text">{{ coffee.price | currency: 'BRL': true }}</p>
+          </div>
+        </div>
+      </div>
+      </div>
+    </div>
   </div>
 </section>
