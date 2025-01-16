@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -43,16 +44,31 @@ export class ProductService {
     return this.products;
   }
 
-  searchProducts(term: string) {
-    const result = {
-      cakes: this.filterProducts(this.products.cakes, term),
-      cupcakes: this.filterProducts(this.products.cupcakes, term),
-      candys: this.filterProducts(this.products.candys, term),
-      coffees: this.filterProducts(this.products.coffees, term),
+  private filteredProducts = new BehaviorSubject(this.products);
+  filteredProducts$ = this.filteredProducts.asObservable();
+
+  filterProducts(searchTerm: string) {
+    const lowerCaseSearchTerm = searchTerm.toLowerCase();
+
+    const allProducts = [
+      ...this.products.cakes,
+      ...this.products.cupcakes,
+      ...this.products.candys,
+      ...this.products.coffees,
+    ];
+
+    const filtered = allProducts.filter(product =>
+      product.name.toLowerCase().includes(lowerCaseSearchTerm)
+    );
+
+    const filteredByCategory = {
+      cakes: filtered.filter(product => this.products.cakes.includes(product)),
+      cupcakes: filtered.filter(product => this.products.cupcakes.includes(product)),
+      candys: filtered.filter(product => this.products.candys.includes(product)),
+      coffees: filtered.filter(product => this.products.coffees.includes(product)),
     };
-    return result;
+
+    this.filteredProducts.next(filteredByCategory);
   }
-  private filterProducts(products: any[], term: string) {
-    return products.filter(product => product.name.toLowerCase().includes(term.toLowerCase()));
-  }
+
 }

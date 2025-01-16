@@ -18,11 +18,17 @@ export class MenuComponent implements OnInit {
   constructor(private productService: ProductService) {}
 
   ngOnInit(): void {
-    const products = this.productService.getProducts();
-    this.cakes = products.cakes;
-    this.cupcakes = products.cupcakes;
-    this.candys = products.candys;
-    this.coffees = products.coffees;
-    
+    this.productService.filteredProducts$.subscribe(products => {
+      this.cakes = products.cakes;
+      this.cupcakes = products.cupcakes;
+      this.candys = products.candys;
+      this.coffees = products.coffees;
+    });
+
+    const initialProducts = this.productService.getProducts();
+    this.cakes = initialProducts.cakes;
+    this.cupcakes = initialProducts.cupcakes;
+    this.candys = initialProducts.candys;
+    this.coffees = initialProducts.coffees;
   }
 }
