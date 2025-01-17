@@ -1,59 +1,55 @@
-# Bakery
+# Page de Cafeteria 🧁
+Este projeto é uma páina de uma cafeteria onde dou o destaque para o menu, que exibe diferentes categorias de produtos como Bolos, Cupcakes, Doces Variados e Cafés. O usuário pode pesquisar os produtos por nome, e os resultados são filtrados dinamicamente com base no termo de busca. 🔍🍰
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.0.5.
 
-## Development server
+## Funcionalidades ⚙
 
-To start a local development server, run:
+- **Busca de Produtos:** O usuário pode digitar o nome de um produto na barra de busca e selecionar em qual categoria ele deseja pesquisar.
+- **Exibição Responsiva:** O layout do menu e dos produtos é totalmente responsivo, adaptando-se a diferentes tamanhos de tela, graças ao uso de Bootstrap.
+## Tecnologias Utilizadas 🚀
 
-```bash
-ng serve
-```
+- **Angular:** Framework para construção  de aplicações web.
+- **TypeScript:** Linguagem de programação utilizada.
+- **Bootstrap:** Framework CSS para design responsivo e componentes prontos.
+- **RxJS:** Para manipulação de observables e operações assíncronas.
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
 
-## Code scaffolding
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+## Como Rodar o Projeto 💻
+#### Pré-requisitos:
+Certifique-se de ter o Node.js e o NPM instalados em sua máquina. Caso não tenha, faça o download em: https://nodejs.org
 
-```bash
-ng generate component component-name
-```
-
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
-
-```bash
-ng generate --help
-```
-
-## Building
-
-To build the project run:
+#### Passos:
+1° Clone o projeto
 
 ```bash
-ng build
+  git clone git@github.com:vanessa-aquino/bakery.git
 ```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
+2° Entre no diretório do projeto
 
 ```bash
-ng test
+  cd bakery
 ```
 
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
+3° Instale as dependências
 
 ```bash
-ng e2e
+  npm install
+```
+4° Inicie o servidor
+
+```bash
+  ng serve
 ```
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+## Contribuições 🤝
 
-## Additional Resources
+Contribuições são bem-vindas! Sinta-se à vontade para fazer um fork do projeto, criar uma branch e enviar um pull request com melhorias ou correções.
 
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+
+## Contato 📬
+Você pode me encontrar no [linkedin](https://www.linkedin.com/in/vanessa-aquino-1b0b29289/) ou enviar um e-mail para [E-mail](mailto:vanessaquinoo@hotmail.com) Estou sempre aberta a discussões sobre desenvolvimento e aprendizado.
+
+## Link para o projeto 🧁
+🔗 https://bakery-umber-seven.vercel.app
+
