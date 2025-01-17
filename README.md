@@ -1,5 +1,5 @@
 # Page de Cafeteria 🧁
-Este projeto é uma páina de uma cafeteria onde dou o destaque para o menu, que exibe diferentes categorias de produtos como Bolos, Cupcakes, Doces Variados e Cafés. O usuário pode pesquisar os produtos por nome, e os resultados são filtrados dinamicamente com base no termo de busca. 🔍🍰
+Este projeto é uma página de uma cafeteria onde dou o destaque para o menu, que exibe diferentes categorias de produtos como Bolos, Cupcakes, Doces Variados e Cafés. O usuário pode pesquisar os produtos por nome, e os resultados são filtrados dinamicamente com base no termo de busca. 🔍🍰
 
 
 ## Funcionalidades ⚙
