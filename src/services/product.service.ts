@@ -7,36 +7,36 @@ import { BehaviorSubject } from 'rxjs';
 export class ProductService {
   private products = {
     cakes: [
-      {name: 'Bolo de Cereja', price: 25.00, img: '/assets/img/cake-one.jpg'},
-      {name: 'Bolo de Chocolate', price: 30.00, img: '/assets/img/cake-three.jpg'},
-      {name: 'Bolo de Baunilha', price: 28.00, img: '/assets/img/cake-four.jpg'},
-      {name: 'Bolo de Maracujá', price: 28.00, img: '/assets/img/cake-five.jpg'},
-      {name: 'Bolo de Morango', price: 27.00, img: '/assets/img/cake-seven.jpg'},
-      {name: 'Bolo de Amora', price: 26.00, img: '/assets/img/cake-eight.jpg'},
-      {name: 'Bolo Dois Sabores', price: 30.0, img: '/assets/img/cake-nine.jpg'},
+      {name: 'Bolo de Cereja', price: 25.00, img: '/assets/img/cake-one.jpg', category: 'cake'},
+      {name: 'Bolo de Chocolate', price: 30.00, img: '/assets/img/cake-three.jpg', category: 'cake'},
+      {name: 'Bolo de Baunilha', price: 28.00, img: '/assets/img/cake-four.jpg', category: 'cake'},
+      {name: 'Bolo de Maracujá', price: 28.00, img: '/assets/img/cake-five.jpg', category: 'cake'},
+      {name: 'Bolo de Morango', price: 27.00, img: '/assets/img/cake-seven.jpg', category: 'cake'},
+      {name: 'Bolo de Amora', price: 26.00, img: '/assets/img/cake-eight.jpg', category: 'cake'},
+      {name: 'Bolo Dois Sabores', price: 30.0, img: '/assets/img/cake-nine.jpg', category: 'cake'},
     ],
     cupcakes: [
-      {name: 'Ferrero Rocher', price: 14.00, img: '/assets/img/cupcake-one.jpg'},
-      {name: 'Cerejinha', price: 8.00, img: '/assets/img/cupcake-two.jpg'},
-      {name: 'Menta com Chocolate', price: 10.00, img: '/assets/img/cupcake-three.jpg'},
-      {name: 'Red Velvet', price: 10.00, img: '/assets/img/cupcake-four.jpg'},
-      {name: 'Uvinha', price: 8.00, img: '/assets/img/cupcake-five.jpg'},
-      {name: 'Baunilha', price: 7.00, img: '/assets/img/cupcake-six.jpg'},
-      {name: 'Chocolate com Laranja', price: 12.00, img: '/assets/img/cupcake-eight.jpg'},
+      {name: 'Ferrero Rocher', price: 14.00, img: '/assets/img/cupcake-one.jpg', category: 'cupcake'},
+      {name: 'Cerejinha', price: 8.00, img: '/assets/img/cupcake-two.jpg', category: 'cupcake'},
+      {name: 'Menta com Chocolate', price: 10.00, img: '/assets/img/cupcake-three.jpg', category: 'cupcake'},
+      {name: 'Red Velvet', price: 10.00, img: '/assets/img/cupcake-four.jpg', category: 'cupcake'},
+      {name: 'Uvinha', price: 8.00, img: '/assets/img/cupcake-five.jpg', category: 'cupcake'},
+      {name: 'Baunilha', price: 7.00, img: '/assets/img/cupcake-six.jpg', category: 'cupcake'},
+      {name: 'Chocolate com Laranja', price: 12.00, img: '/assets/img/cupcake-eight.jpg', category: 'cupcake'},
     ],
     candys: [
-      {name: 'Waffle', price: 12.00, img: '/assets/img/waffle.jpg'},
-      {name: 'Panqueca Americana', price: 12.00, img: '/assets/img/pancake.jpg'},
-      {name: 'Macaron', price: 4.50, img: '/assets/img/macaron.jpg'},
-      {name: 'Petit Gateu', price: 14.00, img: '/assets/img/gateu.jpg'},
-      {name: 'Donuts', price: 10.00, img: '/assets/img/donuts.jpg'},
-      {name: 'Brownie', price: 10.00, img: '/assets/img/brownie.jpg'},
-      {name: 'Cookie', price: 3.50, img: '/assets/img/cookie.jpg'},
+      {name: 'Waffle', price: 12.00, img: '/assets/img/waffle.jpg', category: 'candy'},
+      {name: 'Panqueca Americana', price: 12.00, img: '/assets/img/pancake.jpg', category: 'candy'},
+      {name: 'Macaron', price: 4.50, img: '/assets/img/macaron.jpg', category: 'candy'},
+      {name: 'Petit Gateu', price: 14.00, img: '/assets/img/gateu.jpg', category: 'candy'},
+      {name: 'Donuts', price: 10.00, img: '/assets/img/donuts.jpg', category: 'candy'},
+      {name: 'Brownie', price: 10.00, img: '/assets/img/brownie.jpg', category: 'candy'},
+      {name: 'Cookie', price: 3.50, img: '/assets/img/cookie.jpg', category: 'candy'},
     ],
     coffees: [
-      {name: 'Café Coado', price: 5.50, img: '/assets/img/coffee.jpg'},
-      {name: 'Chocolate Quente', price: 12.00, img: '/assets/img/chocolate.jpg'},
-      {name: 'Cappuccino', price: 12.00, img: '/assets/img/cappuccino.jpg'},
+      {name: 'Café Coado', price: 5.50, img: '/assets/img/coffee.jpg', category: 'coffee'},
+      {name: 'Chocolate Quente', price: 12.00, img: '/assets/img/chocolate.jpg', category: 'coffee'},
+      {name: 'Cappuccino', price: 12.00, img: '/assets/img/cappuccino.jpg', category: 'coffee'},
     ],
   };
 
@@ -44,31 +44,24 @@ export class ProductService {
     return this.products;
   }
 
-  private filteredProducts = new BehaviorSubject(this.products);
+  private filteredProducts = new BehaviorSubject<any[]>(this.getAllProducts());
   filteredProducts$ = this.filteredProducts.asObservable();
 
-  filterProducts(searchTerm: string) {
-    const lowerCaseSearchTerm = searchTerm.toLowerCase();
+  constructor() {}
 
-    const allProducts = [
+  getAllProducts() {
+    return [
       ...this.products.cakes,
       ...this.products.cupcakes,
       ...this.products.candys,
       ...this.products.coffees,
-    ];
+    ]
+  }
 
-    const filtered = allProducts.filter(product =>
-      product.name.toLowerCase().includes(lowerCaseSearchTerm)
-    );
-
-    const filteredByCategory = {
-      cakes: filtered.filter(product => this.products.cakes.includes(product)),
-      cupcakes: filtered.filter(product => this.products.cupcakes.includes(product)),
-      candys: filtered.filter(product => this.products.candys.includes(product)),
-      coffees: filtered.filter(product => this.products.coffees.includes(product)),
-    };
-
-    this.filteredProducts.next(filteredByCategory);
+  filterProducts(searchTerm: string) {
+    const lowerCaseSearchTerm = searchTerm.toLowerCase();
+    const filtered = this.getAllProducts().filter(product => product.name.toLowerCase().includes(lowerCaseSearchTerm));
+    this.filteredProducts.next(filtered);
   }
 
 }

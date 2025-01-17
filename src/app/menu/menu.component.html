@@ -17,6 +17,9 @@
     <div class="tab-pane fade show active" id="cakes-tab-pane" role="tabpanel" aria-labelledby="cakes-tab" tabindex="0">
       <!-- Cards -->
   <div class="row row-cols-1 row-cols-md-3 g-4 mt-2">
+    <div *ngIf="cakes.length === 0">
+      <h4 class="not-found">Nenhum bolo com esse sabor encontrado 🙁</h4>
+    </div>
     <div class="col" *ngFor="let cake of cakes">
       <div class="card-menu" id="card-cake">
         <img [src]="cake.img" class="card-img-top" [alt]="cake.name">
@@ -31,6 +34,9 @@
     <div class="tab-pane fade" id="cupcakes-tab-pane" role="tabpanel" aria-labelledby="cupcakes-tab" tabindex="0">
       <!-- Cards -->
       <div class="row row-cols-1 row-cols-md-3 g-4 mt-2">
+        <div *ngIf="cupcakes.length === 0">
+          <h4 class="not-found">Nenhum cupcake com esse sabor encontrado 🙁</h4>
+        </div>
         <div class="col" *ngFor="let cupcake of cupcakes">
           <div class="card-menu" id="card-cupcake">
             <img [src]="cupcake.img" class="card-img-top" [alt]="cupcake.name">
@@ -45,6 +51,9 @@
     <div class="tab-pane fade" id="candys-tab-pane" role="tabpanel" aria-labelledby="candys-tab" tabindex="0">
       <!-- Cards -->
       <div class="row row-cols-1 row-cols-md-3 g-4 mt-2">
+        <div *ngIf="candys.length === 0">
+          <h4 class="not-found">Nenhum doce com esse sabor encontrado 🙁</h4>
+        </div>
         <div class="col" *ngFor="let candy of candys">
           <div class="card-menu" id="card-candy">
             <img [src]="candy.img" class="card-img-top" [alt]="candy.name">
@@ -59,6 +68,9 @@
     <div class="tab-pane fade" id="coffees-tab-pane" role="tabpanel" aria-labelledby="coffees-tab" tabindex="0">
       <!-- Cards -->
       <div class="row row-cols-1 row-cols-md-3 g-4 mt-2">
+        <div *ngIf="coffees.length === 0">
+          <h4 class="not-found">Nenhum café desse tipo encontrado 🙁</h4>
+        </div>
         <div class="col" *ngFor="let coffee of coffees">
           <div class="card-menu" id="card-coffee">
             <img [src]="coffee.img" class="card-img-top" [alt]="coffee.name">

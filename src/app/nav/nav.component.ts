@@ -13,9 +13,7 @@ export class NavComponent {
 
   constructor(private productService: ProductService) {};
 
-  onSearch(event: Event) {
-    const input = event.target as HTMLInputElement;
-    const searchTerm = input.value;
-    this.productService.filterProducts(searchTerm);
+  onSearch(): void {
+    this.productService.filterProducts(this.searchTerm);
   }
 }
